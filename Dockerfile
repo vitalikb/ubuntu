@@ -1,6 +1,6 @@
 FROM ubuntu:20.04
 RUN apt-get update \
-&& apt-get install -y wget htop iotop gnupg curl
+&& apt-get install -y wget htop iotop gnupg curl netcat
 RUN curl -s https://www.mongodb.org/static/pgp/server-4.4.asc | apt-key add - \
 && echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/4.4 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-4.4.list \
 && apt-get update \
