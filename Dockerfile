@@ -8,3 +8,7 @@ RUN wget --quiet -O - https://www.mongodb.org/static/pgp/server-4.4.asc | apt-ke
 && apt-get update
 RUN apt-get install -y mongodb-org-shell mongodb-org-tools
 RUN apt-get install -y postgresql-client-12
+RUN apt-get install -y default-jre
+RUN java --version \
+&& wget https://archive.apache.org/dist/kafka/2.2.1/kafka_2.12-2.2.1.tgz \
+&& tar -xzf kafka_2.12-2.2.1.tgz
