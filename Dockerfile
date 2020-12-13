@@ -1,7 +1,7 @@
 FROM ubuntu:20.04
 #Basic deps
 RUN apt-get update \
-&& apt-get install -y wget htop iotop gnupg curl netcat vim
+&& apt-get install -y wget htop iotop gnupg curl netcat vim unzip
 
 RUN wget --quiet -O - https://www.mongodb.org/static/pgp/server-4.4.asc | apt-key add - \
 && wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add - \
@@ -13,6 +13,7 @@ RUN apt-get install -y mongodb-org-shell mongodb-org-tools
 RUN apt-get install -y postgresql-client-12
 RUN apt-get install -y default-jre && java --version
 
+WORKDIR /root
 #Kafka Client
 RUN wget -q https://archive.apache.org/dist/kafka/2.2.1/kafka_2.12-2.2.1.tgz \
 && tar -xzf kafka_2.12-2.2.1.tgz && rm kafka_2.12-2.2.1.tgz
